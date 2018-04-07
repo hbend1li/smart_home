@@ -117,6 +117,7 @@
     A2F
     AUTH
   */
+    
   idle();
   echo json_encode($RESULT, JSON_PRETTY_PRINT);
   session_commit();
@@ -127,7 +128,6 @@ function write_event($message = null, $type = null){
   global $FW, $_SESSION, $IP;
   $type = $type ? "'".$type."'" : null ;
   if ( isset($_SESSION['ID']) && $_SESSION['ID'] && $message ){
-    //print_r("INSERT INTO events (`id`,`ip`,`cmd`,`msg`) VALUE ('$_SESSION[ID]', '$IP', $type, '$message')");
     $FW->fetch("INSERT INTO events (`id`,`ip`,`cmd`,`msg`) VALUE ('$_SESSION[ID]', '$IP', $type, '$message')");
   }
 }
